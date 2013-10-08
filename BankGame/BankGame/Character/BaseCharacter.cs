@@ -1,8 +1,7 @@
-using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 using System;					// Added to access the enum class
 
-public class BaseCharacter : MonoBehaviour {
+public class BaseCharacter {
 	private string name;
 	private int level;
 	private uint freeExp;
@@ -11,7 +10,7 @@ public class BaseCharacter : MonoBehaviour {
 	private Vital[] vital;
 	private Skill[] skill;
 	
-	private List<Buff> buffs;
+	//private List<Buff> buffs;
 	
 	public void Awake() {
 		name = string.Empty;
