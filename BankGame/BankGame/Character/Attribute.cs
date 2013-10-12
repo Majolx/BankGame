@@ -9,6 +9,7 @@ public class Attribute : BaseStat {
 public enum AttributeName {
 	Strength,
 	Dexterity,
-	Intelligence
+	Intelligence,
+	Agility
 }
 
