@@ -48,7 +48,7 @@ namespace BankGame.Screens
         /// </summary>
         void NewGameMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
-            LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
+            LoadingScreen.Load(ScreenManager, false, e.PlayerIndex,
                                new NewGameMenuScreen());
         }
 
