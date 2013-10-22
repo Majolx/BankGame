@@ -53,6 +53,7 @@ namespace BankGame
 
             // Activate the first screens.
             // screenManager.AddScreen(new #SCREEN_GOES_HERE#, null);
+            screenManager.AddScreen(new BackgroundScreen(), null);
             screenManager.AddScreen(new MainMenuScreen(), null);
 
         }
