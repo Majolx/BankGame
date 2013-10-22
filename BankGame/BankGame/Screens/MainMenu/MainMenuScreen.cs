@@ -75,7 +75,8 @@ namespace BankGame.Screens
         /// </summary>
         void OptionsMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
-            ScreenManager.AddScreen(new OptionsScreen(), e.PlayerIndex);
+            LoadingScreen.Load(ScreenManager, false, e.PlayerIndex,
+                               new OptionsScreen());
         }
 
         /// <summary>
