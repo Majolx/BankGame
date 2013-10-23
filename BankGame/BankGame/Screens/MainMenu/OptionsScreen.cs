@@ -85,8 +85,7 @@ namespace BankGame.Screens
         void BackMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
             // Go back to main menu.
-            LoadingScreen.Load(ScreenManager, false, e.PlayerIndex,
-                               new MainMenuScreen());
+            ScreenManager.AddScreen(new MainMenuScreen(), e.PlayerIndex);
         }
 
 
