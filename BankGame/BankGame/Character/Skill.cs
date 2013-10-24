@@ -14,6 +14,13 @@ public class Skill : ModifiedStat {
 	}
 }
 
+public void effexp()
+{
+}
+
+public void calcEffExp()
+{
+}
 public enum SkillName {
 	Hacking,
 	Charisma,

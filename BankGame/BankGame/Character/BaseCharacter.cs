@@ -71,6 +71,10 @@ public class BaseCharacter
 
 	public void CalculateLevel() {
         // Ping logic for calculating levels goes here :O
+        // check on gain exp.
+        //get level  exp call value for leveling up
+        
+        
 	}
 
     private void LevelUp()
