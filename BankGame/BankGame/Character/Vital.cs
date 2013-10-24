@@ -2,8 +2,8 @@ public class Vital : ModifiedStat {
 	private int curValue;
 	
 	public Vital() {
-		curValue = 0;
-		ExpToLevel = 50;
+		curValue      = 0;
+		ExpToLevel    = 50;
 		LevelModifier = 1.1f;
 	}
 	

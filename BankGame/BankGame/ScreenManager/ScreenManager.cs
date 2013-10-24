@@ -71,11 +71,7 @@ namespace BankGame
         /// each time it is updated. This can be useful for making sure
         /// everything is being added and removed at the right times.
         /// </summary>
-        public bool TraceEnabled
-        {
-            get { return traceEnabled; }
-            set { traceEnabled = value; }
-        }
+        public bool TraceEnabled { get; set; }
 
 
         #endregion
@@ -110,8 +106,8 @@ namespace BankGame
             // Load content belonging to the screen manager.
             ContentManager content = Game.Content;
 
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-            font = content.Load<SpriteFont>("res/fnt/menufont");
+            spriteBatch  = new SpriteBatch(GraphicsDevice);
+            font         = content.Load<SpriteFont>("res/fnt/menufont");
             blankTexture = content.Load<Texture2D>("res/img/blank");
 
             // Tell each of the screens to load their content.
@@ -193,7 +189,7 @@ namespace BankGame
                 TraceScreens();
         }
 
-
+        
         /// <summary>
         /// Prints a list of all the screens, for debugging.
         /// </summary>

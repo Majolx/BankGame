@@ -35,70 +35,62 @@ public class BaseCharacter
 
     #region Properties
 
-    
+
+    public string Name { get; set; }
+
+    public int Level { get; set; }
+
     /// <summary>
-    /// 
+    /// The amount of free experience 
     /// </summary>
-    public string Name
-    {
-        get { return name; }
-        set { name = value; }
-    }
-
-    public int Level
-    {
-        get { return level; }
-        set { level = value; }
-    }
-
-    public uint FreeExp
-    {
-        get { return freeExp; }
-        set { freeExp = value; }
-    }
-
-    public void addExp(uint exp)
-    {
-        freeExp += exp;
-        calculateLevel();
-    }
+    public uint FreeExp { get; set; }
 
 
     #endregion
-    public void Awake() {
-		name = string.Empty;
-		level = 0;
-		freeExp = 0;
-		
-		primaryAttribute = new Attribute[Enum.GetValues(typeof(AttributeName)).Length];
-		vital = new Vital[Enum.GetValues(typeof(VitalName)).Length];
-		skill = new Skill[Enum.GetValues(typeof(SkillName)).Length];
+
+    public BaseCharacter()
+    {
+
+        name    = string.Empty;
+        level   = 0;
+        freeExp = 0;
+
+        primaryAttribute = new Attribute[Enum.GetValues(typeof(AttributeName)).Length];
+        vital            = new Vital[Enum.GetValues(typeof(VitalName)).Length];
+        skill            = new Skill[Enum.GetValues(typeof(SkillName)).Length];
+    }
+
+    #region Experience and Leveling
+
+
+    public void AddExp(uint exp)
+    {
+        freeExp += exp;
+        CalculateLevel();
+    }
+
+	public void CalculateLevel() {
+        // Ping logic for calculating levels goes here :O
+	}
+
+    private void LevelUp()
+    {
+
+    }
+
+
+    
+    private void SetupPrimaryAttributes() {
+
 	}
 	
-	// Use this for initialization
-	void Start () {
-	
+	private void SetupVitals() {
+
 	}
 	
-	/// <summary>
-	/// 
-	/// </summary>
-	void Update () {
-	
-	}
-	
-	// Take the average of all of the player's skills and assign it as the player level.
-	public void calculateLevel() {
-		
-	}
-	
-	private void setupPrimaryAttributes() {
-	}
-	
-	private void setupVitals() {
-	}
-	
-	private void setupSkills() {
-	}
-	
+	private void SetupSkills() {
+
+    }
+
+    #endregion
 }

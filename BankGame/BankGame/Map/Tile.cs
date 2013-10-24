@@ -128,10 +128,10 @@ namespace BankGame.Map
         public Tile(Texture2D texture, int tileSize, bool isDestructable, 
                     bool isCollidable)
         {
-            this.texture = texture;
-            this.tileSize = tileSize;
+            this.texture        = texture;
+            this.tileSize       = tileSize;
             this.isDestructable = isDestructable;
-            this.isCollidable = isCollidable;
+            this.isCollidable   = isCollidable;
         }
 
 

@@ -73,9 +73,9 @@ public class BaseStat
     /// Constructor for the base stat.
     /// </summary>
     public BaseStat() {
-		baseValue = 0;
-		buffValue = 0;
-		expToLevel = 100;
+		baseValue     = 0;
+		buffValue     = 0;
+		expToLevel    = 100;
 		levelModifier = 1.1f;
 	}
 

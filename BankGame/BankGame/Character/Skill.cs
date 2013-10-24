@@ -2,8 +2,8 @@ public class Skill : ModifiedStat {
 	private bool known;
 	
 	public Skill() {
-		known = false;
-		ExpToLevel = 25;
+		known         = false;
+		ExpToLevel    = 25;
 		LevelModifier = 1.1f;
 		
 	}

@@ -1,9 +1,11 @@
-﻿using System;
+﻿#region Using Statements
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+#endregion
 
 namespace BankGame.Screens
 {
@@ -12,7 +14,7 @@ namespace BankGame.Screens
         private string tempString = "Tutorial Screen";
 
         public override void Draw(GameTime gameTime)
-        {
+        {   
             SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
             SpriteFont font = ScreenManager.Font;
 

@@ -22,7 +22,7 @@ public class ModifiedStat : BaseStat
 
 
     public ModifiedStat() {
-		mods = new List<ModifyingAttribute>();
+		mods     = new List<ModifyingAttribute>();
 		modValue = 0;
 	}
 
