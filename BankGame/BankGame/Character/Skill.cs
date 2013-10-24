@@ -5,6 +5,7 @@ public class Skill : ModifiedStat {
 		known         = false;
 		ExpToLevel    = 25;
 		LevelModifier = 1.1f;
+
 		
 	}
 	
