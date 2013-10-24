@@ -21,14 +21,20 @@ namespace BankGame.Map
         /// <summary>
         /// The width of the map.
         /// </summary>
-        public int Width { get; }
+        public int Width
+        {
+            get { return width; }
+        }
         private int width;
 
 
         /// <summary>
         /// The height of the map.
         /// </summary>
-        public int Height { get; }
+        public int Height 
+        { 
+            get { return height; }
+        }
         private int height;
 
 
@@ -38,7 +44,11 @@ namespace BankGame.Map
         /// <summary>
         /// A list of tiles to be used by the tile map.
         /// </summary>
-        private List<Tile> tiles;
+        public List<Tile> Tiles
+        {
+            get { return tiles; }
+        }
+        private List<Tile> tiles = new List<Tile>();
 
 
         /// <summary>
@@ -46,12 +56,12 @@ namespace BankGame.Map
         /// system, so the first bracket represents the X coordinate and the second
         /// bracket represents the Y coordinate.
         /// </summary>
-        public Tile[,] TileMap
+        public List<Tile> TileMap
         {
             get { return tileMap; }
         }
 
-        private Tile[,] tileMap;
+        private List<Tile> tileMap = new List<Tile>();
 
 
         #endregion
@@ -68,34 +78,11 @@ namespace BankGame.Map
             this.width  = width;
         }
 
+        public GameMap() { }
 
         #endregion
 
         #region Update and Draw
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            int counterX = 0;
-            int counterY = 0;
-
-            Rectangle tileArea;
-            foreach (Tile tile in tileMap[,])
-            {
-                if (counterX > NumberOfTilesX)
-                {
-                    counterX = 0;
-                    counterY++;
-                }
-                tileArea = new Rectangle(counterX * tile.TileSize,
-                                         counterY * tile.TileSize,
-                                         (counterX + 1) * tile.TileSize,
-                                         (counterY + 1) * tile.TileSize);
-
-                spriteBatch.Draw(tile.Texture, tileArea, Color.White);
-            
-            }
-            
-        }
 
         #endregion
     }

@@ -21,6 +21,7 @@ namespace BankGame.Screens
             MenuEntry tutorialMenuEntry = new MenuEntry("Tutorial");
             MenuEntry optionsMenuEntry = new MenuEntry("Options");
             MenuEntry exitGameMenuEntry = new MenuEntry("Exit Game");
+            MenuEntry debugMenuEntry = new MenuEntry("Debug");
 
             // Hook up menu event handlers
             newGameMenuEntry.Selected += NewGameMenuEntrySelected;
@@ -28,6 +29,7 @@ namespace BankGame.Screens
             tutorialMenuEntry.Selected += TutorialMenuEntrySelected;
             optionsMenuEntry.Selected += OptionsMenuEntrySelected;
             exitGameMenuEntry.Selected += ExitGameMenuEntrySelected;
+            debugMenuEntry.Selected += DebugMenuEntrySelected;
 
             // Add entries to the menu
             MenuEntries.Add(newGameMenuEntry);
@@ -35,6 +37,7 @@ namespace BankGame.Screens
             MenuEntries.Add(tutorialMenuEntry);
             MenuEntries.Add(optionsMenuEntry);
             MenuEntries.Add(exitGameMenuEntry);
+            MenuEntries.Add(debugMenuEntry);
         }
 
 
@@ -83,6 +86,12 @@ namespace BankGame.Screens
         void ExitGameMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
             // Exit game code
+        }
+
+
+        void DebugMenuEntrySelected(object sender, PlayerIndexEventArgs e)
+        {
+            ScreenManager.AddScreen(new DebugMenuScreen(), e.PlayerIndex);
         }
 
         #endregion

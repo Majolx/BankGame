@@ -121,6 +121,7 @@
     <Compile Include="ScreenManager\InputState.cs" />
     <Compile Include="ScreenManager\ScreenManager.cs" />
     <Compile Include="Screens\Core\BackgroundScreen.cs" />
+    <Compile Include="Screens\Core\DebugMenuScreen.cs" />
     <Compile Include="Screens\Core\LoadingScreen.cs" />
     <Compile Include="Screens\Core\MenuEntry.cs" />
     <Compile Include="Screens\Core\MenuScreen.cs" />

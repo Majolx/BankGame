@@ -17,7 +17,7 @@ namespace BankGame.Map
 
         private Texture2D texture;
 
-        private int tileSize;
+        private static int tileSize;
 
         private bool isDestructable;
         
@@ -38,7 +38,7 @@ namespace BankGame.Map
         /// <summary>
         /// The size of the tile, representing both the height and width.
         /// </summary>
-        public int TileSize
+        public static int TileSize
         {
             get { return tileSize; }
             set { tileSize = value; }
@@ -125,11 +125,10 @@ namespace BankGame.Map
         /// <param name="isDestructable">The destructability of the tile.</param>
         /// <param name="isCollidable">The collidability of the tile.</param>
         /// <param name="containsObject"></param>
-        public Tile(Texture2D texture, int tileSize, bool isDestructable, 
+        public Tile(Texture2D texture, bool isDestructable, 
                     bool isCollidable)
         {
             this.texture        = texture;
-            this.tileSize       = tileSize;
             this.isDestructable = isDestructable;
             this.isCollidable   = isCollidable;
         }
