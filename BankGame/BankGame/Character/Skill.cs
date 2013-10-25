@@ -8,20 +8,22 @@ public class Skill : ModifiedStat {
 
 		
 	}
-	
+
+    public void effexp()
+    {
+    }
+
+    public void calcEffExp()
+    {
+    }
+
 	public bool Known {
 		get { return known; }
 		set { known = value; }
 	}
 }
 
-public void effexp()
-{
-}
 
-public void calcEffExp()
-{
-}
 public enum SkillName {
 	Hacking,
 	Charisma,

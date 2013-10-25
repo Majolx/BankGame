@@ -11,10 +11,6 @@ namespace BankGame.Map
 {
     class GameMap
     {
-        #region Fields
-
-        #endregion
-
         #region Properties
 
 
@@ -48,7 +44,8 @@ namespace BankGame.Map
         {
             get { return tiles; }
         }
-        private List<Tile> tiles = new List<Tile>();
+
+        private List<Tile> tiles;
 
 
         /// <summary>
@@ -61,7 +58,7 @@ namespace BankGame.Map
             get { return tileMap; }
         }
 
-        private List<Tile> tileMap = new List<Tile>();
+        private List<Tile> tileMap;
 
 
         #endregion
@@ -72,17 +69,15 @@ namespace BankGame.Map
         /// <summary>
         /// Constructor.
         /// </summary>
-        public GameMap(int height, int width)
+        public GameMap()
         {
-            this.height = height;
-            this.width  = width;
+            this.tiles = new List<Tile>();
+            this.tileMap = new List<Tile>();
         }
-
-        public GameMap() { }
 
         #endregion
 
-        #region Update and Draw
+        #region Update
 
         #endregion
     }

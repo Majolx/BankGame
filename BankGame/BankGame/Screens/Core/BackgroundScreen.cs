@@ -46,7 +46,7 @@ namespace BankGame.Screens
             if (content == null)
                 content = new ContentManager(ScreenManager.Game.Services, "Content");
 
-            backgroundTexture = content.Load<Texture2D>("res/img/background");
+            backgroundTexture = content.Load<Texture2D>("background");
         }
 
 
