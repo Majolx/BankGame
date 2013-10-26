@@ -27,6 +27,9 @@ public class BaseCharacter
 	private Vital[] vital;
 	private Skill[] skill;
 
+    private int expToLevel;
+    private int levelModifier;
+
     //private List<Buff> buffs;
     //private List<Consumable> inventory;
     //private List<WearableItem> equipment;
@@ -54,6 +57,8 @@ public class BaseCharacter
         name    = string.Empty;
         level   = 0;
         freeExp = 0;
+        expToLevel = 100;
+        levelModifier = 1.1f;
 
         primaryAttribute = new Attribute[Enum.GetValues(typeof(AttributeName)).Length];
         vital            = new Vital[Enum.GetValues(typeof(VitalName)).Length];
@@ -69,21 +74,29 @@ public class BaseCharacter
         CalculateLevel();
     }
 
-	public void CalculateLevel() {
-        // Ping logic for calculating levels goes here :O
-        // check on gain exp.
-        //get level  exp call value for leveling up
-        
+
+    /// <summary>
+    /// Calculates the amount of experience needed to level
+
+    /// </summary>
+    private int calculateExpToLevel()
+    {
+        return (int)(expToLevel * levelModifier);
+    }
+
+	public void CalculateLevel() 
+    {
+        if (freeExp >= calculateExpToLevel())
+            LevelUp();
         
 	}
 
     private void LevelUp()
     {
-
+        expToLevel = calculateExpToLevel();
+        level++;
     }
-
-
-    
+ 
     private void SetupPrimaryAttributes() {
 
 	}

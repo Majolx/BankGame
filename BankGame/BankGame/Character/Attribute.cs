@@ -11,9 +11,6 @@ public class Attribute : BaseStat {
 	}
 }
 
-/// <summary>
-/// 
-/// </summary>
 public enum AttributeName {
 	Strength,
 	Dexterity,
