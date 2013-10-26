@@ -28,7 +28,7 @@ public class BaseCharacter
 	private Skill[] skill;
 
     private int expToLevel;
-    private int levelModifier;
+    private float levelModifier;
 
     //private List<Buff> buffs;
     //private List<Consumable> inventory;
