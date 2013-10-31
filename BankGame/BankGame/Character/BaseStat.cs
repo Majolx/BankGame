@@ -12,8 +12,6 @@ public class BaseStat
 
     private int baseValue;			// The base value of this stat
 	private int buffValue;			// The amount of buff to this stat
-	private int expToLevel;			// The total amount of exp needed to raise this skill
-	private float levelModifier;	// The modifier aplied to the exp needed to raise this skill
 
     #endregion
 
@@ -38,25 +36,6 @@ public class BaseStat
     }
 
     /// <summary>
-    /// The amount of experience needed to level this stat.
-    /// </summary>
-    protected int ExpToLevel
-    {
-        get { return expToLevel; }
-        set { expToLevel = value; }
-    }
-
-    /// <summary>
-    /// The ratio adjustment to be applied to the amount of
-    /// experience needed to level this stat.
-    /// </summary>
-    public float LevelModifier
-    {
-        get { return levelModifier; }
-        set { levelModifier = value; }
-    }
-
-    /// <summary>
     /// The combined value of this stat's base and buff values.
     /// </summary>
     public int AdjustedBaseValue
@@ -74,9 +53,7 @@ public class BaseStat
     /// </summary>
     public BaseStat() {
 		baseValue     = 0;
-		buffValue     = 0;
-		expToLevel    = 100;
-		levelModifier = 1.1f;
+        buffValue = 0;
 	}
 
     #endregion
@@ -89,23 +66,7 @@ public class BaseStat
     /// </summary>
     public void levelUp()
     {
-        expToLevel = calculateExpToLevel();
         baseValue++;
-    }
-
-
-    #endregion
-
-    #region Private Methods
-
-
-    /// <summary>
-    /// Calculates the amount of experience needed to level
-    /// this stat up to the next level.
-    /// </summary>
-    private int calculateExpToLevel()
-    {
-        return (int)(expToLevel * levelModifier);
     }
 
 

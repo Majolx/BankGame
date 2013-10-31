@@ -77,7 +77,6 @@ public class BaseCharacter
 
     /// <summary>
     /// Calculates the amount of experience needed to level
-
     /// </summary>
     private int calculateExpToLevel()
     {

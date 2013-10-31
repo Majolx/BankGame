@@ -3,8 +3,6 @@ public class Vital : ModifiedStat {
 	
 	public Vital() {
 		curValue      = 0;
-		ExpToLevel    = 50;
-		LevelModifier = 1.1f;
 	}
 	
 	public int CurValue { 
@@ -23,9 +21,9 @@ public class Vital : ModifiedStat {
 public enum VitalName {
 	Health,
 	Energy,
-	Constitution,
 	Evasion,
 	CarryCapacity,
 	Luck,
-	MovementSpeed
+	MovementSpeed,
+    Armor
 }
