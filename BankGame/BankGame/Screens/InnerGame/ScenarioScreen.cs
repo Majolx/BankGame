@@ -76,6 +76,7 @@ namespace BankGame.Screens
 
             // Load the data from the level file into a string
             string levelData = File.ReadAllText(levelFilePath);
+            
 
             // Add the tiles to the tile map
             int c = 0;
