@@ -23,9 +23,10 @@ public class BaseCharacter
 	private uint freeExp; // We use uint instead of int because we won't
                           // be dealing with negative experience values.
 	
-	private Attribute[] primaryAttribute;
-	private Vital[] vital;
-	private Skill[] skill;
+	private Attribute[] attributes;
+	private Vital[] vitals;
+	private Skill[] skills;
+    private Ability[] abilities;
 
     private int expToLevel;
     private float levelModifier;
@@ -44,25 +45,31 @@ public class BaseCharacter
     public int Level { get; set; }
 
     /// <summary>
-    /// The amount of free experience 
+    /// The amount of free experience.
     /// </summary>
     public uint FreeExp { get; set; }
-
 
     #endregion
 
     public BaseCharacter()
     {
-
-        name    = string.Empty;
-        level   = 0;
-        freeExp = 0;
-        expToLevel = 100;
+        // Initialize data members to default values
+        name          = string.Empty;
+        level         = 0;
+        freeExp       = 0;
+        expToLevel    = 100;
         levelModifier = 1.1f;
 
-        primaryAttribute = new Attribute[Enum.GetValues(typeof(AttributeName)).Length];
-        vital            = new Vital[Enum.GetValues(typeof(VitalName)).Length];
-        skill            = new Skill[Enum.GetValues(typeof(SkillName)).Length];
+        // Initialize the arrays of stats and items
+        attributes        = new Attribute[Enum.GetValues(typeof(AttributeName)).Length];
+        vitals            = new Vital[Enum.GetValues(typeof(VitalName)).Length];
+        skills            = new Skill[Enum.GetValues(typeof(SkillName)).Length];
+        abilities         = new Ability[Enum.GetValues(typeof(AbilityName)).Length];
+
+        SetupAttributes();
+        SetupVitals();
+        SetupSkills();
+        SetupAbilities();
     }
 
     #region Experience and Leveling
@@ -83,6 +90,11 @@ public class BaseCharacter
         return (int)(expToLevel * levelModifier);
     }
 
+
+    /// <summary>
+    /// A check to see if the character has earned enough
+    /// experience to level up.
+    /// </summary>
 	public void CalculateLevel() 
     {
         if (freeExp >= calculateExpToLevel())
@@ -90,23 +102,64 @@ public class BaseCharacter
         
 	}
 
+
+    /// <summary>
+    /// Levels up the character.
+    /// </summary>
     private void LevelUp()
     {
         expToLevel = calculateExpToLevel();
         level++;
     }
  
-    private void SetupPrimaryAttributes() {
 
+    /// <summary>
+    /// Initializes the attributes for this character.
+    /// </summary>
+    private void SetupAttributes() 
+    {
+        for (int i = 0; i < attributes.Length; i++)
+        {
+            attributes[i] = new Attribute(1, 0, Enum.GetName(typeof(AttributeName), i));
+        }
 	}
 	
-	private void SetupVitals() {
 
+    /// <summary>
+    /// Initializes the vitals for this character.
+    /// </summary>
+	private void SetupVitals() 
+    {
+        for (int i = 0; i < vitals.Length; i++)
+        {
+            vitals[i] = new Vital(50, 0, 50, Enum.GetName(typeof(VitalName), i));
+        }
 	}
 	
-	private void SetupSkills() {
 
+    /// <summary>
+    /// Initializes the skills for this character.
+    /// </summary>
+	private void SetupSkills()
+    {
+        for (int i = 0; i < skills.Length; i++)
+        {
+            skills[i] = new Skill(Enum.GetName(typeof(SkillName), i));
+        }
     }
+
+
+    /// <summary>
+    /// Initializes the abilities for this character.
+    /// </summary>
+    private void SetupAbilities()
+    {
+        for (int i = 0; i < abilities.Length; i++)
+        {
+            abilities[i] = new Ability(1, 0, Enum.GetName(typeof(AbilityName), i));
+        }
+    }
+
 
     #endregion
 }

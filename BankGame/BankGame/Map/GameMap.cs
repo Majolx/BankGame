@@ -38,7 +38,8 @@ namespace BankGame.Map
         public int NumberOfTilesY;
 
         /// <summary>
-        /// A list of tiles to be used by the tile map.
+        /// A list of tiles to be used by the tile map.  All tiles should be
+        /// unique.
         /// </summary>
         public List<Tile> Tiles
         {
@@ -49,9 +50,8 @@ namespace BankGame.Map
 
 
         /// <summary>
-        /// The collection of tiles placed on the map. The array works as a coordinate
-        /// system, so the first bracket represents the X coordinate and the second
-        /// bracket represents the Y coordinate.
+        /// The collection of tiles placed on the map.  This is where the tiles
+        /// go in order to be represented in-game.  
         /// </summary>
         public List<Tile> TileMap
         {

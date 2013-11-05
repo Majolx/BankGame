@@ -4,9 +4,11 @@
 /// not dependent on other statistics.
 /// </summary>
 public class Attribute : BaseStat {
-	
-	public Attribute() {
-
+	public Attribute(int baseValue, int buffValue, string name) 
+    {
+        this.BaseValue = baseValue;
+        this.BuffValue = buffValue;
+        this.Name = name;
 	}
 }
 

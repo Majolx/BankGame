@@ -12,6 +12,7 @@ public class BaseStat
 
     private int baseValue;			// The base value of this stat
 	private int buffValue;			// The amount of buff to this stat
+    private string name;            // The name of the stat
 
     #endregion
 
@@ -43,6 +44,14 @@ public class BaseStat
         get { return baseValue + buffValue; }
     }
 
+    /// <summary>
+    /// The name of this stat.
+    /// </summary>
+    public string Name
+    {
+        get { return name; }
+        set { name = value; }
+    }
 
     #endregion
 
@@ -51,9 +60,8 @@ public class BaseStat
     /// <summary>
     /// Constructor for the base stat.
     /// </summary>
-    public BaseStat() {
-		baseValue     = 0;
-        buffValue = 0;
+    public BaseStat() 
+    {
 	}
 
     #endregion

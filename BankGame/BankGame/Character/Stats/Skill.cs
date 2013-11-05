@@ -1,3 +1,8 @@
+/// <summary>
+/// A stat group which is characterized by basing part of its value on an
+/// attribute stat.  These skills can be executed directly in-game, and
+/// therefore have an effort level associated with it.
+/// </summary>
 public class Skill : ModifiedStat {
 	private bool known;
     private int currentExp;
@@ -5,12 +10,13 @@ public class Skill : ModifiedStat {
     private int expToLevel;
     private float levelModifier;
 
-	public Skill() {
+	public Skill(string name) {
 		known         = false;
         currentExp    = 0;
         totalExp      = 0;
 		expToLevel    = 100;
-		levelModifier = 1.1f;	
+		levelModifier = 1.1f;
+        this.Name     = name;
 	}
 
 	public bool Known {
