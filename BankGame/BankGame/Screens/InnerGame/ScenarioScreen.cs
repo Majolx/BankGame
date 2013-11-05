@@ -16,63 +16,68 @@ namespace BankGame.Screens
         #region Fields
 
         private ContentManager content;
+        private MapLayout mapLayout;
         private GameMap gameMap;
-        private Texture2D tex1;
-        private Texture2D tex2;
-        private Texture2D tex3;
-        private Texture2D tex4;
-        private Texture2D tex5;
+        private CharacterMap characterMap;
+        private Texture2D[] tileTextures;
+        private Texture2D[] characterTextures;
 
         private string levelFilePath = "level.txt";
 
         #endregion
 
-        #region Properties
-
-        #endregion
-
         #region Initialize
 
-
+        /// <summary>
+        /// Constructor.
+        /// </summary>
         public ScenarioScreen()
         {
+            mapLayout = new MapLayout();
             gameMap = new GameMap();
-
-            //setupTileMap();
         }
 
 
         public override void LoadContent()
         {
+            // Make sure the screen-specific content manager exists
             if (content == null) 
                 content = new ContentManager(ScreenManager.Game.Services, "Content");
+            
+            // Set up the toolbox we will use to make the map.
+            setupTileToolbox();
 
-            tex1 = content.Load<Texture2D>("res/img/map/tempTile01");
-            tex2 = content.Load<Texture2D>("res/img/map/tempTile02");
-            tex3 = content.Load<Texture2D>("res/img/map/tempTile03");
-            tex4 = content.Load<Texture2D>("res/img/map/tempTile04");
-            tex5 = content.Load<Texture2D>("res/img/map/tempTile05");
-
+            // After setting up the tile toolbox, we can now build a map
             setupTileMap();
+        }
+
+
+        private void setupTileToolbox()
+        {
+            // First load all texture content
+            tileTextures = new Texture2D[5];
+            tileTextures[0] = content.Load<Texture2D>("res/img/map/tempTile01");
+            tileTextures[1] = content.Load<Texture2D>("res/img/map/tempTile02");
+            tileTextures[2] = content.Load<Texture2D>("res/img/map/tempTile03");
+            tileTextures[3] = content.Load<Texture2D>("res/img/map/tempTile04");
+            tileTextures[4] = content.Load<Texture2D>("res/img/map/tempTile05");
+
+            // Set the size of the tiles
+            Tile.TileSize = 64;
+
+            // Add the tile types to the tile list.
+            for (int i = 0; i < 5; i++)
+            {
+                gameMap.Tiles.Add(new Tile(tileTextures[i], false, false));
+            }
         }
 
 
         private void setupTileMap()
         {
-            // Set the size of the tiles
-            Tile.TileSize = 64;
-
-            // Add the tile types to the tile list.
-            // This is like a toolbox of tiles for us to make maps with.
-            gameMap.Tiles.Add(new Tile(tex1, false, false));
-            gameMap.Tiles.Add(new Tile(tex2, false, true));
-            gameMap.Tiles.Add(new Tile(tex3, false, false));
-            gameMap.Tiles.Add(new Tile(tex4, false, false));
-            gameMap.Tiles.Add(new Tile(tex5, false, false));
-
             // Set the amount of tiles left/right and up/down
-            gameMap.NumberOfTilesX = 12;
-            gameMap.NumberOfTilesY = 7;
+            mapLayout.NumberOfTilesX = 12;
+            mapLayout.NumberOfTilesY = 7;
 
             // Load the data from the level file into a string
             string levelData = File.ReadAllText(levelFilePath);
@@ -80,23 +85,31 @@ namespace BankGame.Screens
 
             // Add the tiles to the tile map
             int c = 0;
-            for (int i = 0; i < gameMap.NumberOfTilesY; i++)
+            for (int i = 0; i < mapLayout.NumberOfTilesY; i++)
             {
-                for (int j = 0; j < gameMap.NumberOfTilesX; j++)
+                for (int j = 0; j < mapLayout.NumberOfTilesX; j++)
                 {
                     // Make sure we ignore newlines
                     if (levelData[c] == '\r')
                         c += 2;
 
+                    // Read the value at this location and
+                    // interpret it to tile form
                     Tile tile = readTile(levelData[c]);
+
+                    // Add the tile to the game map
                     gameMap.TileMap.Add(tile);
+
                     c++;
                 }
-
             }
         }
 
 
+        /// <summary>
+        /// Take a given character and return the tile type it represents
+        /// within the tile toolbox.
+        /// </summary>
         private Tile readTile(char c)
         {
             Tile tile;
@@ -129,7 +142,7 @@ namespace BankGame.Screens
         public override void Draw(GameTime gameTime)
         {
             SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
-            Rectangle levelSize = new Rectangle(0, 0, gameMap.Width, gameMap.Height);
+            Rectangle levelSize = new Rectangle(0, 0, mapLayout.Width, mapLayout.Height);
 
             spriteBatch.Begin();
 
@@ -139,7 +152,7 @@ namespace BankGame.Screens
             int size = Tile.TileSize;
             foreach (Tile tile in gameMap.TileMap)
             {
-                if (tileCountX >= gameMap.NumberOfTilesX)
+                if (tileCountX >= mapLayout.NumberOfTilesX)
                 {
                     tileCountX = 0;
                     tileCountY++;

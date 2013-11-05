@@ -5,17 +5,20 @@ using Microsoft.Xna.Framework.Graphics;
 #endregion
 
 
-// This file currently under constructon. -m
-
 namespace BankGame.Map
 {
+    /// <summary>
+    /// A helper class for managing map elements.  It acts as a grid that
+    /// tiles align to, to create the background elements.  It is used
+    /// by the map objects to ensure proper snap placement in the map.
+    /// </summary>
     class MapLayout
     {
         #region Properties
 
 
         /// <summary>
-        /// The width of the map.
+        /// The width of the map in pixels.
         /// </summary>
         public int Width
         {
@@ -25,7 +28,7 @@ namespace BankGame.Map
 
 
         /// <summary>
-        /// The height of the map.
+        /// The height of the map in pixels.
         /// </summary>
         public int Height
         {
@@ -34,8 +37,39 @@ namespace BankGame.Map
         private int height;
 
 
-        public int NumberOfTilesX;
-        public int NumberOfTilesY;
+        /// <summary>
+        /// The width of the map in tiles.
+        /// </summary>
+        public int NumberOfTilesX
+        {
+            get { return numberOfTilesX; }
+            set { numberOfTilesX = value; }
+        }
+        private int numberOfTilesX;
+
+
+        /// <summary>
+        /// The height of the map in tiles.
+        /// </summary>
+        public int NumberOfTilesY
+        {
+            get { return numberOfTilesY; }
+            set { numberOfTilesY = value; }
+        }
+        private int numberOfTilesY;
+
+
+        /// <summary>
+        /// The size of the tiles in pixels.  Since the tiles are perfect
+        /// squares, only one value is needed to represent both width
+        /// and height.
+        /// </summary>
+        public int TileSize
+        {
+            get { return tileSize; }
+            set { tileSize = value; }
+        }
+        private int tileSize;
 
 
         #endregion
@@ -46,15 +80,10 @@ namespace BankGame.Map
         /// <summary>
         /// Constructor.
         /// </summary>
-        public MapLayout(int numberOfTilesX, int numberOfTilesY)
+        public MapLayout()
         {
-            this.NumberOfTilesX = numberOfTilesX;
-            this.NumberOfTilesY = numberOfTilesY;
+
         }
-
-        #endregion
-
-        #region Update
 
         #endregion
     }

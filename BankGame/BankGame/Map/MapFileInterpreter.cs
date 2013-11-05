@@ -23,7 +23,7 @@ namespace BankGame.Map
         public List<Tile> GenerateTileList()
         {
             List<Tile> mapTileList = new List<Tile>();
-
+        }
 
 
             return mapTileList;

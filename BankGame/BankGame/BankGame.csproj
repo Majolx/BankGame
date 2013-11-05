@@ -112,6 +112,7 @@
     <Compile Include="Character\BaseCharacter.cs" />
     <Compile Include="Character\Stats\BaseStat.cs" />
     <Compile Include="Character\Stats\ModifiedStat.cs" />
+    <Compile Include="Map\CharacterMap.cs" />
     <Compile Include="Map\GameMap.cs" />
     <Compile Include="Map\MapFileInterpreter.cs" />
     <Compile Include="Map\MapLayout.cs" />

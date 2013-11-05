@@ -15,29 +15,6 @@ namespace BankGame.Map
 
 
         /// <summary>
-        /// The width of the map.
-        /// </summary>
-        public int Width
-        {
-            get { return width; }
-        }
-        private int width;
-
-
-        /// <summary>
-        /// The height of the map.
-        /// </summary>
-        public int Height 
-        { 
-            get { return height; }
-        }
-        private int height;
-
-
-        public int NumberOfTilesX;
-        public int NumberOfTilesY;
-
-        /// <summary>
         /// A list of tiles to be used by the tile map.  All tiles should be
         /// unique.
         /// </summary>
@@ -74,10 +51,6 @@ namespace BankGame.Map
             this.tiles = new List<Tile>();
             this.tileMap = new List<Tile>();
         }
-
-        #endregion
-
-        #region Update
 
         #endregion
     }
