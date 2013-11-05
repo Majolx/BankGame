@@ -114,6 +114,7 @@
     <Compile Include="Character\Stats\ModifiedStat.cs" />
     <Compile Include="Map\GameMap.cs" />
     <Compile Include="Map\MapFileInterpreter.cs" />
+    <Compile Include="Map\MapLayout.cs" />
     <Compile Include="Map\Tile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Game1.cs" />

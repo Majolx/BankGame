@@ -8,14 +8,14 @@ namespace BankGame.Map
 {
     class MapFileInterpreter
     {
-        File mapFile;
+        private FileStream mapFile;
 
         public MapFileInterpreter()
         {
             mapFile = null;
         }
 
-        public MapFileInterpreter(File mapFile)
+        public MapFileInterpreter(FileStream mapFile)
         {
             this.mapFile = mapFile;
         }
