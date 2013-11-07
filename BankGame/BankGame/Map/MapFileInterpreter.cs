@@ -20,6 +20,7 @@ namespace BankGame.Map
             this.mapFile = mapFile;
         }
 
+        /*
         public List<Tile> GenerateTileList()
         {
             List<Tile> mapTileList = new List<Tile>();
@@ -28,6 +29,7 @@ namespace BankGame.Map
 
             return mapTileList;
         }
+        */
 
         // Tile Texture Mode    _________________________
         // 0 - Top Left         |       |       |       |

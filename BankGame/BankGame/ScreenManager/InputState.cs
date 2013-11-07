@@ -15,6 +15,14 @@ using System.Collections.Generic;
 
 namespace BankGame
 {
+    public enum MouseButton
+    {
+        Left   = 0x01, // equiv 0b0001
+        Middle = 0x02, // equiv 0b0010
+        Right  = 0x04, // equiv 0b0100
+        None   = 0x00  // equiv 0b0000
+    }
+
     /// <summary>
     /// Helper for reading input from keyboard, gamepad, and touch input. This class 
     /// tracks both the current and previous state of the input devices, and implements 
@@ -29,9 +37,13 @@ namespace BankGame
 
         public readonly KeyboardState[] CurrentKeyboardStates;
         public readonly GamePadState[] CurrentGamePadStates;
+        public MouseState CurrentMouseState;
 
         public readonly KeyboardState[] LastKeyboardStates;
         public readonly GamePadState[] LastGamePadStates;
+        public MouseButton mouseButtonsLastFrame;
+        public MouseButton mouseButtonsThisFrame;
+
 
         public readonly bool[] GamePadWasConnected;
 
@@ -80,6 +92,35 @@ namespace BankGame
                     GamePadWasConnected[i] = true;
                 }
             }
+
+            // The mouse can be handled independently
+            mouseButtonsLastFrame = mouseButtonsThisFrame;
+            mouseButtonsThisFrame = MouseButton.None;     // 0b0000
+
+            CurrentMouseState = Mouse.GetState();
+            mouseButtonsThisFrame |= CurrentMouseState.LeftButton == ButtonState.Pressed ? MouseButton.Left : MouseButton.None;
+            mouseButtonsThisFrame |= CurrentMouseState.MiddleButton == ButtonState.Pressed ? MouseButton.Middle : MouseButton.None;
+            mouseButtonsThisFrame |= CurrentMouseState.RightButton == ButtonState.Pressed ? MouseButton.Right : MouseButton.None;
+        }
+
+        public bool mouseWasPressed(MouseButton button)
+        {
+            return (mouseButtonsLastFrame & button) == button && (mouseButtonsThisFrame & button) != button;
+        }
+
+        public bool mouseWasReleased(MouseButton button)
+        {
+            return (mouseButtonsLastFrame & button) == button && ((mouseButtonsThisFrame ^ button) & button) == button; 
+        }
+
+        public bool mouseIsDown(MouseButton button)
+        {
+            return (mouseButtonsThisFrame & button) == button;
+        }
+
+        public bool mouseIsUp(MouseButton button)
+        {
+            return ((mouseButtonsThisFrame ^ button) & button) == button;
         }
 
 
@@ -124,7 +165,7 @@ namespace BankGame
         {
             if (controllingPlayer.HasValue)
             {
-                // Read input from the specified player.
+                // Read1 input from the specified player.
                 playerIndex = controllingPlayer.Value;
 
                 int i = (int)playerIndex;

@@ -43,7 +43,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="res\img\bgr\" />
-    <Folder Include="res\img\spr\" />
     <Folder Include="res\snd\bgm\" />
     <Folder Include="res\snd\sfx\" />
   </ItemGroup>
@@ -105,6 +104,13 @@
     </Compile>
     <Compile Include="res\img\map\tempTile05.jpg">
       <Name>tempTile05</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="res\img\spr\MovementArrow.png">
+      <Name>MovementArrow</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

@@ -24,6 +24,8 @@ namespace BankGame.Screens
 
         private string levelFilePath = "level.txt";
 
+        private Sprite arrowSprite;
+
         #endregion
 
         #region Initialize
@@ -35,6 +37,7 @@ namespace BankGame.Screens
         {
             mapLayout = new MapLayout();
             gameMap = new GameMap();
+            arrowSprite = new Sprite();
         }
 
 
@@ -49,6 +52,9 @@ namespace BankGame.Screens
 
             // After setting up the tile toolbox, we can now build a map
             setupTileMap();
+
+            // Load the arrow sprite
+            arrowSprite.Load(content, "res/img/spr/MovementArrow", 15, 1);
         }
 
 
@@ -138,6 +144,14 @@ namespace BankGame.Screens
 
         #region Update and Draw
 
+
+        public override void HandleInput(InputState input)
+        {
+            if (input.mouseIsDown(MouseButton.Left))
+            {
+                
+            }
+        }
 
         public override void Draw(GameTime gameTime)
         {

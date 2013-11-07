@@ -124,7 +124,6 @@
     <Compile Include="ScreenManager\GameScreen.cs" />
     <Compile Include="ScreenManager\InputState.cs" />
     <Compile Include="ScreenManager\ScreenManager.cs" />
-    <Compile Include="Screens\Debug\CharacterTestScreen.cs" />
     <Compile Include="Screens\Core\BackgroundScreen.cs" />
     <Compile Include="Screens\Core\DebugMenuScreen.cs" />
     <Compile Include="Screens\Core\LoadingScreen.cs" />
@@ -132,6 +131,7 @@
     <Compile Include="Screens\Core\MenuScreen.cs" />
     <Compile Include="Screens\Core\MessageBoxScreen.cs" />
     <Compile Include="Screens\Core\PauseMenuScreen.cs" />
+    <Compile Include="Screens\Debug\InputDebugScreen.cs" />
     <Compile Include="Screens\IntroSequenceScreen.cs" />
     <Compile Include="Screens\MainMenu\ContinueMenuScreen.cs" />
     <Compile Include="Screens\MainMenu\MainMenuScreen.cs" />
@@ -140,12 +140,12 @@
     <Compile Include="Screens\MainMenu\TutorialScreen.cs" />
     <Compile Include="Screens\PlayerIndexEventArgs.cs" />
     <Compile Include="Screens\InnerGame\ScenarioScreen.cs" />
+    <Compile Include="Sprite.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagNov5.cd" />
     <None Include="level.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

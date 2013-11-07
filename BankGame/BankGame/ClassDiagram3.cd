@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BaseCharacter" Collapsed="true">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEABABAAAgAAAAAAgAQAAAwBAAEEEAEBEACAAIAAAQE=</HashCode>
+      <FileName>Character\BaseCharacter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ability" Collapsed="true">
+    <Position X="11.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Character\Stats\Ability.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Attribute" Collapsed="true">
+    <Position X="11.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Character\Stats\Attribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseStat" Collapsed="true">
+    <Position X="14.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAACAEAAAABAAAAAAAAQAAAAEAQAAAAAAACAAAAA=</HashCode>
+      <FileName>Character\Stats\BaseStat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModifiedStat" Collapsed="true">
+    <Position X="16.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACACABAAAAAAAAAAAAAAACACAEAAA=</HashCode>
+      <FileName>Character\Stats\ModifiedStat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Skill" Collapsed="true">
+    <Position X="14" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAECAAABgAAAAIAAAAAQAAAAAAQAQAAEQBAAAAAAAA=</HashCode>
+      <FileName>Character\Stats\Skill.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Vital" Collapsed="true">
+    <Position X="16.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Character\Stats\Vital.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankGame.Game1" Collapsed="true">
+    <Position X="24.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAgAAAAAAAAAAAAAAAAgAAEEAAEAAAAQ=</HashCode>
+      <FileName>Game1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankGame.Program" Collapsed="true">
+    <Position X="26.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Game1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankGame.GameScreen" Collapsed="true">
+    <Position X="1.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAwAEACAAARAAgAEEAIAAAAADAAAAA4AAgAGAkYIBAY=</HashCode>
+      <FileName>ScreenManager\GameScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankGame.InputState" Collapsed="true">
+    <Position X="24.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAwAAUAAAAAAAAAAAAAAQAAFYAAAAAEAIAAAEAAAAEA=</HashCode>
+      <FileName>ScreenManager\InputState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankGame.ScreenManager" Collapsed="true">
+    <Position X="22.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAVEAgAAAgAwAAAAAAAAAAAAAAiBAERAAAgAACCEQ=</HashCode>
+      <FileName>ScreenManager\ScreenManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankGame.Map.CharacterMap" Collapsed="true">
+    <Position X="25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Map\CharacterMap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankGame.Map.GameMap" Collapsed="true">
+    <Position X="25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAIAAAACAAA=</HashCode>
+      <FileName>Map\GameMap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankGame.Map.MapLayout" Collapsed="true">
+    <Position X="22.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAEAABYAAAAWAQAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Map\MapLayout.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankGame.Map.Tile" Collapsed="true">
+    <Position X="26.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAARCIAgEZgAAACQAAAAAAAgBAAAIAQAAAAAA=</HashCode>
+      <FileName>Map\Tile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankGame.Screens.BackgroundScreen" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQCEAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Screens\Core\BackgroundScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankGame.Screens.DebugMenuScreen" Collapsed="true">
+    <Position X="7.5" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAAAAAAAAAAAABAAAEAAAAAAAAA=</HashCode>
+      <FileName>Screens\Core\DebugMenuScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankGame.Screens.LoadingScreen" Collapsed="true">
+    <Position X="3" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQAgAAAAAAAAgAAAAAQAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Screens\Core\LoadingScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankGame.Screens.MenuEntry" Collapsed="true">
+    <Position X="4.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAgAAAAJABAAAAAAAAIAAAACEQAAAI=</HashCode>
+      <FileName>Screens\Core\MenuEntry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankGame.Screens.MenuScreen" Collapsed="true">
+    <Position X="5.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CQQAACGAAAAAAgAAAAAAgAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Screens\Core\MenuScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankGame.Screens.MessageBoxScreen" Collapsed="true">
+    <Position X="3" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAQQCAACAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAACQ=</HashCode>
+      <FileName>Screens\Core\MessageBoxScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankGame.Screens.PauseMenuScreen" Collapsed="true">
+    <Position X="7.5" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Screens\Core\PauseMenuScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankGame.Screens.ScenarioScreen" Collapsed="true">
+    <Position X="3" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAABAAAiAAAACAAAAAAAAECACAAAEACAAAEAQ=</HashCode>
+      <FileName>Screens\InnerGame\ScenarioScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankGame.Screens.IntroSequenceScreen" Collapsed="true">
+    <Position X="3" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Screens\IntroSequenceScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankGame.Screens.ContinueMenuScreen" Collapsed="true">
+    <Position X="3" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Screens\MainMenu\ContinueMenuScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankGame.Screens.MainMenuScreen" Collapsed="true">
+    <Position X="7.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAwAAAAAAAAAAAAAAAQAAAAAQABAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Screens\MainMenu\MainMenuScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankGame.Screens.NewGameMenuScreen" Collapsed="true">
+    <Position X="7.5" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAACEAAgAAAAAAAAAAAAEAAAAAABAAAgAAAAAAAAA=</HashCode>
+      <FileName>Screens\MainMenu\NewGameMenuScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankGame.Screens.OptionsScreen" Collapsed="true">
+    <Position X="7.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAABQAAAAAAIAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Screens\MainMenu\OptionsScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankGame.Screens.TutorialScreen" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Screens\MainMenu\TutorialScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankGame.Screens.PlayerIndexEventArgs" Collapsed="true">
+    <Position X="24.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Screens\PlayerIndexEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="ModifyingAttribute" Collapsed="true">
+    <Position X="10.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Character\Stats\ModifiedStat.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="AbilityName" Collapsed="true">
+    <Position X="11.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAABAAAgAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Character\Stats\Ability.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="AttributeName" Collapsed="true">
+    <Position X="11.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Character\Stats\Attribute.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SkillName" Collapsed="true">
+    <Position X="14" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAECAEIAQAAAAAAABAAAAAABAAAAAAA=</HashCode>
+      <FileName>Character\Stats\Skill.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="VitalName" Collapsed="true">
+    <Position X="16.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAEAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Character\Stats\Vital.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BankGame.ScreenState" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAgAAAIAAAEAAA=</HashCode>
+      <FileName>ScreenManager\GameScreen.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Arial" Size="9" />
+</ClassDiagram>
