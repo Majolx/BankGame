@@ -9,7 +9,8 @@ namespace BankGame.Screens
 {
     class InputDebugScreen : GameScreen
     {
-        string mouseInputMessage = "";
+        string mouseButtonMessage = "";
+        string mouseCoordMessage = "";
 
         public override void Draw(GameTime gameTime)
         {
@@ -17,39 +18,44 @@ namespace BankGame.Screens
             SpriteFont font = ScreenManager.Font;
 
             spriteBatch.Begin();
-            spriteBatch.DrawString(font, mouseInputMessage, new Vector2(0, 0), Color.White);
+            spriteBatch.DrawString(font, mouseButtonMessage, new Vector2(0, 0), Color.White);
+            spriteBatch.DrawString(font, mouseCoordMessage, new Vector2(0, 30), Color.White);
             spriteBatch.End();
         }
 
         public override void HandleInput(InputState input)
         {
-            mouseInputMessage = "";
+            // Display the mouse button states
+            mouseButtonMessage = "";
             if (input.mouseIsDown(MouseButton.Left))
             {
-                mouseInputMessage += " Mouse Down(Left) ";
+                mouseButtonMessage += " Mouse Down(Left) ";
             }
             if (input.mouseIsUp(MouseButton.Left))
             {
-                mouseInputMessage += " Mouse Up(Left) ";
+                mouseButtonMessage += " Mouse Up(Left) ";
             } 
 
             if (input.mouseIsDown(MouseButton.Right))
             {
-                mouseInputMessage += " Mouse Down(Right) ";
+                mouseButtonMessage += " Mouse Down(Right) ";
             }
             if (input.mouseIsUp(MouseButton.Right))
             {
-                mouseInputMessage += " Mouse Up(Right) ";
+                mouseButtonMessage += " Mouse Up(Right) ";
             }
 
             if (input.mouseIsDown(MouseButton.Middle))
             {
-                mouseInputMessage += " Mouse Down(Middle) ";
+                mouseButtonMessage += " Mouse Down(Middle) ";
             }
             if (input.mouseIsUp(MouseButton.Middle))
             {
-                mouseInputMessage += " Mouse Up(Middle) ";
+                mouseButtonMessage += " Mouse Up(Middle) ";
             }
+
+            // Display the mouse coordinates
+            mouseCoordMessage = "X: " + input.MouseX() + " Y: " + input.MouseY();
         }
     }
 }

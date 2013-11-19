@@ -131,6 +131,7 @@
     <Compile Include="Screens\Core\MenuScreen.cs" />
     <Compile Include="Screens\Core\MessageBoxScreen.cs" />
     <Compile Include="Screens\Core\PauseMenuScreen.cs" />
+    <Compile Include="Screens\Debug\CharacterTestScreen.cs" />
     <Compile Include="Screens\Debug\InputDebugScreen.cs" />
     <Compile Include="Screens\IntroSequenceScreen.cs" />
     <Compile Include="Screens\MainMenu\ContinueMenuScreen.cs" />
@@ -145,7 +146,6 @@
   <ItemGroup>
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
-    <None Include="ClassDiagNov5.cd" />
     <None Include="level.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

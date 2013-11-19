@@ -16,9 +16,8 @@ namespace BankGame.Map
         #region Fields
 
         private Texture2D texture;
-
+        private Vector2 position;
         private static int tileSize;
-
         private bool isDestructable;
         
         #endregion
@@ -45,26 +44,11 @@ namespace BankGame.Map
         }
 
 
-        /// <summary>
-        /// The X position, in pixels, of the tile.
-        /// </summary>
-        public int TileX
+        public Vector2 Position
         {
-            get { return tileX; }
-            set { tileX = value; }
+            get { return position; }
+            set { position = value; }
         }
-        private int tileX;
-
-        /// <summary>
-        /// The Y position, in pixels, of the tile.
-        /// </summary>
-        public int TileY
-        {
-            get { return tileY; }
-            set { tileY = value; }
-        }
-
-        private int tileY;
 
         /// <summary>
         /// The destructability of the tile.
@@ -117,43 +101,35 @@ namespace BankGame.Map
         #region Initialization
 
 
+        public Tile()
+        {
+            this.texture = null;
+            this.isDestructable = false;
+            this.isCollidable = false;
+            this.position = new Vector2();
+        }
+
+        public Tile(Tile tile)
+        {
+            this.texture = tile.Texture;
+            this.isDestructable = tile.IsDestructable;
+            this.isCollidable = tile.IsCollidable;
+            this.position = tile.Position;
+        }
+
+
         /// <summary>
         /// Constructor for the Tile class.  
         /// </summary>
-        /// <param name="texture">The texture of the tile.</param>
-        /// <param name="tileSize">The size of the tile.</param>
-        /// <param name="isDestructable">The destructability of the tile.</param>
-        /// <param name="isCollidable">The collidability of the tile.</param>
-        /// <param name="containsObject"></param>
         public Tile(Texture2D texture, bool isDestructable, 
                     bool isCollidable)
         {
             this.texture        = texture;
             this.isDestructable = isDestructable;
             this.isCollidable   = isCollidable;
+            this.position = new Vector2();
         }
 
-
-        #endregion
-
-        #region Update and Draw
-
-        /// <summary>
-        /// Draws the tile to the screen.
-        /// </summary>
-        public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
-        {
-            Rectangle tileArea = new Rectangle(tileX, tileY,
-                                               tileX + tileSize,
-                                               tileY + tileSize);
-
-            // Draw the tile
-            spriteBatch.Begin();
-
-            spriteBatch.Draw(texture, tileArea, Color.White);
-
-            spriteBatch.End();
-        }
 
         #endregion
     }

@@ -11,6 +11,9 @@ using System.Diagnostics;
 
 namespace BankGame.Screens
 {
+    /// <summary>
+    /// The core gameplay screen.
+    /// </summary>
     class ScenarioScreen : GameScreen
     {
         #region Fields
@@ -40,7 +43,7 @@ namespace BankGame.Screens
             arrowSprite = new Sprite();
         }
 
-
+         
         public override void LoadContent()
         {
             // Make sure the screen-specific content manager exists
@@ -69,7 +72,7 @@ namespace BankGame.Screens
             tileTextures[4] = content.Load<Texture2D>("res/img/map/tempTile05");
 
             // Set the size of the tiles
-            Tile.TileSize = 64;
+            mapLayout.TileSize = 64;
 
             // Add the tile types to the tile list.
             for (int i = 0; i < 5; i++)
@@ -103,11 +106,20 @@ namespace BankGame.Screens
                     // interpret it to tile form
                     Tile tile = readTile(levelData[c]);
 
+                    Vector2 v;
+                    v = new Vector2(j * mapLayout.TileSize, i * mapLayout.TileSize);
+                    tile.Position = v;
+
                     // Add the tile to the game map
                     gameMap.TileMap.Add(tile);
-
+                    Debug.WriteLine(tile.Position);
                     c++;
                 }
+                
+            }
+            foreach (Tile tile in gameMap.TileMap)
+            {
+                Debug.WriteLine(tile.Position);
             }
         }
 
@@ -123,16 +135,16 @@ namespace BankGame.Screens
             switch (c)
             {
                 case '0':
-                    tile = gameMap.Tiles[0];
+                    tile = new Tile(gameMap.Tiles[0]);
                     break;
                 case '1':
-                    tile = gameMap.Tiles[1];
+                    tile = new Tile(gameMap.Tiles[1]);
                     break;
                 case '2':
-                    tile = gameMap.Tiles[2];
+                    tile = new Tile(gameMap.Tiles[2]);
                     break;
                 default:
-                    tile = gameMap.Tiles[3];
+                    tile = new Tile(gameMap.Tiles[3]);
                     break;
             }
 
@@ -147,9 +159,34 @@ namespace BankGame.Screens
 
         public override void HandleInput(InputState input)
         {
-            if (input.mouseIsDown(MouseButton.Left))
+            if (input.mouseWasPressed(MouseButton.Left))
             {
+                Vector2 mousePos = new Vector2(input.MouseX(), input.MouseY());
+                Debug.WriteLine(mousePos);
+                Debug.WriteLine(mapLayout.TileSize);
+                mousePos.X -= mousePos.X - (int)(mousePos.X / mapLayout.TileSize) * mapLayout.TileSize;
+                mousePos.Y -= mousePos.Y - (int)(mousePos.Y / mapLayout.TileSize) * mapLayout.TileSize;
+                Debug.WriteLine(mousePos);
+                Tile myTile = new Tile();
+                // Find the tile that encapsulates this point
+                foreach (Tile tile in gameMap.TileMap)
+                {
+                    if (tile.Position.X == mousePos.X && tile.Position.Y == mousePos.Y)
+                    {
+                        myTile = tile;
+                        break;
+                    }
+                }
                 
+                // Set the arrow sprite to be drawn at this tiles location
+
+
+
+                // Check if click is new
+                // Check if this tile is different from the last tile
+                // Check if arrow has been drawn before
+                // Check if new tile is a previous tile
+                // Update arrow accordingly
             }
         }
 
@@ -160,27 +197,14 @@ namespace BankGame.Screens
 
             spriteBatch.Begin();
 
+            // Assign each tile its position
+            int x = 0;
+            int y = 0;
+
             // Draw the map
-            int tileCountX = 0;
-            int tileCountY = 0;
-            int size = Tile.TileSize;
             foreach (Tile tile in gameMap.TileMap)
             {
-                if (tileCountX >= mapLayout.NumberOfTilesX)
-                {
-                    tileCountX = 0;
-                    tileCountY++;
-                }
-
-
-                int drawPosX = size * tileCountX;
-                int drawPosY = size * tileCountY;
-                Vector2 drawPos = new Vector2(drawPosX, drawPosY);
-
-
-                spriteBatch.Draw(tile.Texture, drawPos, Color.White);
-
-                tileCountX++;
+                spriteBatch.Draw(tile.Texture, tile.Position, Color.White);
             }
 
             spriteBatch.End();

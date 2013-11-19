@@ -48,8 +48,8 @@ namespace BankGame.Map
         /// </summary>
         public GameMap()
         {
-            this.tiles = new List<Tile>();
-            this.tileMap = new List<Tile>();
+            tiles = new List<Tile>();
+            tileMap = new List<Tile>();
         }
 
         #endregion

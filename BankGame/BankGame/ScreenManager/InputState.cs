@@ -123,6 +123,16 @@ namespace BankGame
             return ((mouseButtonsThisFrame ^ button) & button) == button;
         }
 
+        public int MouseX()
+        {
+            return Mouse.GetState().X;
+        }
+
+        public int MouseY()
+        {
+            return Mouse.GetState().Y;
+        }
+
 
         /// <summary>
         /// Helper for checking if a key was newly pressed during this update. The
