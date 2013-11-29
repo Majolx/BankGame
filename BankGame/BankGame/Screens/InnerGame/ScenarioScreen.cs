@@ -54,7 +54,7 @@ namespace BankGame.Screens
             setupTileToolbox();
 
             // After setting up the tile toolbox, we can now build a map
-            setupTileMap();
+            gameMap.TileMap = setupTileMap();
 
             // Load the arrow sprite
             arrowSprite.Load(content, "res/img/spr/MovementArrow", 15, 1);
@@ -82,17 +82,31 @@ namespace BankGame.Screens
         }
 
 
-        private void setupTileMap()
+        private List<Tile> setupTileMap()
         {
-            // Set the amount of tiles left/right and up/down
-            mapLayout.NumberOfTilesX = 12;
-            mapLayout.NumberOfTilesY = 7;
+            List<Tile> tileMap = new List<Tile>();
 
-            // Load the data from the level file into a string
+
+            /// Read tile map
             string levelData = File.ReadAllText(levelFilePath);
-            
 
-            // Add the tiles to the tile map
+
+            /// Calculate map width and height
+            int x = 0;
+            int y = 0;
+
+            foreach (char t in levelData)
+            {
+                if (t != '\r' && y == 0)    x++;    // Counts the line length
+                if (t == '\n')              y++;    // Counts the number of lines
+            }
+            
+            
+            mapLayout.NumberOfTilesX = --x;
+            mapLayout.NumberOfTilesY = y;
+
+
+            /// Add tiles to tile map
             int c = 0;
             for (int i = 0; i < mapLayout.NumberOfTilesY; i++)
             {
@@ -102,25 +116,22 @@ namespace BankGame.Screens
                     if (levelData[c] == '\r')
                         c += 2;
 
-                    // Read the value at this location and
-                    // interpret it to tile form
-                    Tile tile = readTile(levelData[c]);
+                    Tile tile = readTile(levelData[c++]);
 
-                    Vector2 v;
-                    v = new Vector2(j * mapLayout.TileSize, i * mapLayout.TileSize);
-                    tile.Position = v;
+                    tile.Position = new Vector2(j * mapLayout.TileSize, i * mapLayout.TileSize);
 
                     // Add the tile to the game map
-                    gameMap.TileMap.Add(tile);
-                    Debug.WriteLine(tile.Position);
-                    c++;
+                    tileMap.Add(tile);
                 }
-                
             }
-            foreach (Tile tile in gameMap.TileMap)
-            {
-                Debug.WriteLine(tile.Position);
-            }
+
+
+            /// DEBUG ///
+            Debug.WriteLine(levelData);
+            /// DEBUG ///
+            
+
+            return tileMap;
         }
 
 
@@ -161,19 +172,23 @@ namespace BankGame.Screens
         {
             if (input.mouseWasPressed(MouseButton.Left))
             {
+                // Retrieve the mouse position
                 Vector2 mousePos = new Vector2(input.MouseX(), input.MouseY());
-                Debug.WriteLine(mousePos);
-                Debug.WriteLine(mapLayout.TileSize);
-                mousePos.X -= mousePos.X - (int)(mousePos.X / mapLayout.TileSize) * mapLayout.TileSize;
-                mousePos.Y -= mousePos.Y - (int)(mousePos.Y / mapLayout.TileSize) * mapLayout.TileSize;
-                Debug.WriteLine(mousePos);
-                Tile myTile = new Tile();
+                
+                // Snap the position to the tile grid, becoming the top-left corner.
+                // Subtract the amount of tiles times the tile size from the original position.
+                int idk = (int)(mousePos.X % mapLayout.TileSize) * mapLayout.TileSize;
+                Vector2 snappedPos = new Vector2(mousePos.X - idk, mousePos.Y - idk);
+
+                Debug.WriteLine(snappedPos);
+
                 // Find the tile that encapsulates this point
+                Tile clickedTile;
                 foreach (Tile tile in gameMap.TileMap)
                 {
                     if (tile.Position.X == mousePos.X && tile.Position.Y == mousePos.Y)
                     {
-                        myTile = tile;
+                        clickedTile = new Tile(tile);
                         break;
                     }
                 }
