@@ -12,6 +12,7 @@ namespace BankGame
     {
         private Texture2D spriteTexture;
         private List<Rectangle> spriteFrames;
+        private int currentFrame;
 
         public Vector2 Position;
 
@@ -20,6 +21,7 @@ namespace BankGame
             spriteFrames = new List<Rectangle>();
             Position = new Vector2(0, 0);
         }
+
         /// <summary>
         /// Load sprite function which slices the sprite.
         /// </summary>
@@ -42,5 +44,17 @@ namespace BankGame
                 }
             }
         }
+
+        public void setFrame(int frame)
+        {
+            if (frame > spriteFrames.Count)
+            {
+                Debug.WriteLine("Frame index out of bounds!");
+                return;
+            }
+
+            currentFrame = frame;
+        }
+
     }
 }

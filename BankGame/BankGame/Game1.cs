@@ -46,6 +46,9 @@ namespace BankGame
             graphics.PreferredBackBufferWidth = 1024;
             graphics.PreferredBackBufferHeight = 720;
 
+            // Show the mouse cursor
+            this.IsMouseVisible = true;
+
             // Create the screen manager component.
             screenManager = new ScreenManager(this);
 

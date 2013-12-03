@@ -30,13 +30,13 @@ namespace BankGame.Map
         /// The collection of tiles placed on the map.  This is where the tiles
         /// go in order to be represented in-game.  
         /// </summary>
-        public Tile[][] TileMap
+        public Tile[,] TileMap
         {
             get { return tileMap; }
             set { tileMap = value; }
         }
 
-        private Tile[][] tileMap;
+        private Tile[,] tileMap;
 
 
         #endregion
@@ -50,7 +50,6 @@ namespace BankGame.Map
         public GameMap()
         {
             tiles = new List<Tile>();
-            tileMap = new List<Tile>();
         }
 
         #endregion

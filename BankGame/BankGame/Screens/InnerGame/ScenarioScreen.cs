@@ -82,11 +82,8 @@ namespace BankGame.Screens
         }
 
 
-        private List<Tile> setupTileMap()
+        private Tile[,] setupTileMap()
         {
-            List<Tile> tileMap = new List<Tile>();
-
-
             /// Read tile map
             string levelData = File.ReadAllText(levelFilePath);
 
@@ -105,7 +102,7 @@ namespace BankGame.Screens
             mapLayout.NumberOfTilesX = --x;
             mapLayout.NumberOfTilesY = y;
 
-
+            Tile[,] tileMap = new Tile[mapLayout.NumberOfTilesX,mapLayout.NumberOfTilesY];
             /// Add tiles to tile map
             int c = 0;
             for (int i = 0; i < mapLayout.NumberOfTilesY; i++)
@@ -121,7 +118,7 @@ namespace BankGame.Screens
                     tile.Position = new Vector2(j * mapLayout.TileSize, i * mapLayout.TileSize);
 
                     // Add the tile to the game map
-                    tileMap.Add(tile);
+                    tileMap[j,i] = tile;
                 }
             }
 
@@ -174,36 +171,29 @@ namespace BankGame.Screens
             {
                 // Retrieve the mouse position
                 Vector2 mousePos = new Vector2(input.MouseX(), input.MouseY());
-                
-                // Snap the position to the tile grid, becoming the top-left corner.
-                // Subtract the amount of tiles times the tile size from the original position.
-                int idk = (int)(mousePos.X % mapLayout.TileSize) * mapLayout.TileSize;
-                Vector2 snappedPos = new Vector2(mousePos.X - idk, mousePos.Y - idk);
-
-                Debug.WriteLine(snappedPos);
 
                 // Find the tile that encapsulates this point
-                Tile clickedTile;
-                foreach (Tile tile in gameMap.TileMap)
+                int tileX = (int)(mousePos.X / mapLayout.TileSize);
+                int tileY = (int)(mousePos.Y / mapLayout.TileSize);
+
+                // Ensure that we have clicked in the map
+                if (tileX < 0 || tileX >= mapLayout.NumberOfTilesX || tileY < 0 || tileY >= mapLayout.NumberOfTilesY)
                 {
-                    if (tile.Position.X == mousePos.X && tile.Position.Y == mousePos.Y)
-                    {
-                        clickedTile = new Tile(tile);
-                        break;
-                    }
+                    Debug.WriteLine("Click is out of bounds!");
+                    return;
                 }
-                
+                Tile clickedTile = gameMap.TileMap[tileX,tileY];
+
+                Debug.WriteLine(tileX + " " + tileY + " " + clickedTile.Position);
                 // Set the arrow sprite to be drawn at this tiles location
 
-
-
-                // Check if click is new
                 // Check if this tile is different from the last tile
                 // Check if arrow has been drawn before
                 // Check if new tile is a previous tile
                 // Update arrow accordingly
             }
         }
+
 
         public override void Draw(GameTime gameTime)
         {
@@ -212,15 +202,17 @@ namespace BankGame.Screens
 
             spriteBatch.Begin();
 
-            // Assign each tile its position
-            int x = 0;
-            int y = 0;
-
             // Draw the map
-            foreach (Tile tile in gameMap.TileMap)
+            for (int i = 0; i < mapLayout.NumberOfTilesY; i++)
             {
-                spriteBatch.Draw(tile.Texture, tile.Position, Color.White);
+                for (int j = 0; j < mapLayout.NumberOfTilesX; j++)
+                {
+                    Tile tile = gameMap.TileMap[j,i];
+                    spriteBatch.Draw(tile.Texture, tile.Position, Color.White);
+                }
             }
+
+            // Draw the movement arrow
 
             spriteBatch.End();
         }
