@@ -1,29 +1,29 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using BankGame.Character;
+//using BankGame.Character;
 
 namespace BankGame.Screens
 {
     class CharacterTestScreen : GameScreen
     {
-        private BaseCharacter testCharacter;
+        //private BaseCharacter testCharacter;
         private string output;
 
         public CharacterTestScreen()
         {
-            testCharacter = new BaseCharacter();
+            //testCharacter = new BaseCharacter();
         }
 
         public override void Draw(GameTime gameTime)
         {
-            SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
+            //SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
 
-            output = "Name: " + testCharacter.Name +
-                  "\nLevel: " + testCharacter.Level;
+            //output = "Name: " + testCharacter.Name +
+             //     "\nLevel: " + testCharacter.Level;
 
-            spriteBatch.Begin();
-            spriteBatch.DrawString(ScreenManager.Font, output, new Vector2(0, 0), Color.White);
-            spriteBatch.End();
+            //spriteBatch.Begin();
+            //spriteBatch.DrawString(ScreenManager.Font, output, new Vector2(0, 0), Color.White);
+            //spriteBatch.End();
         }
     }
 }

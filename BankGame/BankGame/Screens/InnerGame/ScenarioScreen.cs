@@ -32,7 +32,7 @@ namespace BankGame.Screens
         // Declare globals
         public static Vector2 drawOffset = Vector2.Zero;
 
-        float screenSpeed = 0.75f;
+        float screenSpeed = 0.1f;
 
         // Declare file name
         private string levelFileName = "level.txt";
@@ -116,7 +116,7 @@ namespace BankGame.Screens
             /// W ///
             if (wKey)
             {
-                if (myCharacter.Sprite.CurrentAnimation != "up")
+                if (myCharacter.Sprite.CurrentAnimation != "up" && !aKey && !sKey && !dKey)
                 {
                     myCharacter.Sprite.CurrentAnimation = "up";
                 }
@@ -126,7 +126,7 @@ namespace BankGame.Screens
             /// A ///
             if (aKey)
             {
-                if (myCharacter.Sprite.CurrentAnimation != "left")
+                if (myCharacter.Sprite.CurrentAnimation != "left" && !sKey && !dKey)
                 {
                     myCharacter.Sprite.CurrentAnimation = "left";
                 }
@@ -136,7 +136,7 @@ namespace BankGame.Screens
             /// S ///
             if (sKey)
             {
-                if (myCharacter.Sprite.CurrentAnimation != "down")
+                if (myCharacter.Sprite.CurrentAnimation != "down" && !dKey)
                 {
                     myCharacter.Sprite.CurrentAnimation = "down";
                 }

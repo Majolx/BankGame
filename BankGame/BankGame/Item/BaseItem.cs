@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-namespace Game1.Itemclasses
+namespace BankGame
 {
  public enum Hands { One, Two }
  public enum ArmorLocation { Chest, Helm, Gloves, Feet }
@@ -38,8 +38,8 @@ namespace Game1.Itemclasses
  }
  public bool IsEquipped
  {
- get { return equipped; }
- protected set { equipped = value; }
+ get { return isEquipped; }
+ protected set { isEquipped = value; }
  }
  #endregion
  #region Constructor Region

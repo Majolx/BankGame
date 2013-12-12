@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 
-namespace Game1.ItemClasses
+namespace BankGame
 {
     public class GameItem
     {

@@ -20,37 +20,28 @@ namespace BankGame.Character
 
         #region Fields
 
-<<<<<<< HEAD
         private MobileSprite sprite;
         private string name;
         private int level;
-        private uint freeExp; // We use uint instead of int because we won't
-        // be dealing with negative experience values.
-=======
-    private string name;
+
     private string className;
-	private int level;
     private int strValue;
     private int dexValue;
     private int intValue; 
 	private uint freeExp; // We use uint instead of int because we won't
                           // be dealing with negative experience values.
 	
-	private Attribute[] attributes;
-	private Vital[] vitals;
-	private Skill[] skills;
-    private Ability[] abilities;
->>>>>>> origin/master
+
 
         private Attribute[] attributes;
         private Vital[] vitals;
         private Skill[] skills;
         private Ability[] abilities;
 
-<<<<<<< HEAD
+
         private int expToLevel;
         private float levelModifier;
-=======
+
     protected GameItem head;
     protected GameItem body;
     protected GameItem hands;
@@ -59,7 +50,7 @@ namespace BankGame.Character
     //private List<Buff> buffs;
     //private List<Consumable> inventory;
     //private List<WearableItem> equipment;
->>>>>>> origin/master
+
 
         //private List<Buff> buffs;
         //private List<Consumable> inventory;
@@ -69,18 +60,14 @@ namespace BankGame.Character
 
         #region Properties
 
-<<<<<<< HEAD
 
         public string Name { get; set; }
-=======
-    public string Name { get; set; }
+
     public string ClassName { get; set; }
-    public int Level { get; set; }
->>>>>>> origin/master
+
 
         public int Level { get; set; }
 
-<<<<<<< HEAD
         /// <summary>
         /// The amount of free experience.
         /// </summary>
@@ -88,27 +75,6 @@ namespace BankGame.Character
 
         #endregion
 
-        public BaseCharacter()
-        {
-            // Initialize data members to default values
-            name = string.Empty;
-            level = 0;
-            freeExp = 0;
-            expToLevel = 100;
-            levelModifier = 1.1f;
-
-            // Initialize the arrays of stats and items
-            attributes = new Attribute[Enum.GetValues(typeof(AttributeName)).Length];
-            vitals = new Vital[Enum.GetValues(typeof(VitalName)).Length];
-            skills = new Skill[Enum.GetValues(typeof(SkillName)).Length];
-            abilities = new Ability[Enum.GetValues(typeof(AbilityName)).Length];
-
-            SetupAttributes();
-            SetupVitals();
-            SetupSkills();
-            SetupAbilities();
-        }
-=======
     // Armor properties
     public GameItem Helm
     {
@@ -132,7 +98,6 @@ namespace BankGame.Character
         get { return mainHand; }
     }
 
-    #endregion
 
     public BaseCharacter()
     {
@@ -161,8 +126,7 @@ namespace BankGame.Character
 
         
     }
-    #region Experience and Leveling
->>>>>>> origin/master
+
 
         #region Experience and Leveling
 
@@ -191,21 +155,8 @@ namespace BankGame.Character
         {
             if (freeExp >= calculateExpToLevel())
                 LevelUp();
-
-<<<<<<< HEAD
         }
-=======
-    /// <summary>
-    /// Levels up the character.
-    /// </summary>
-    private void LevelUp()
-    {
-        expToLevel = calculateExpToLevel();
-        level++;
-        freeExp = 0;
-    }
- 
->>>>>>> origin/master
+
 
 
         /// <summary>
@@ -242,19 +193,7 @@ namespace BankGame.Character
         }
 
 
-        /// <summary>
-        /// Initializes the skills for this character.
-        /// </summary>
-        private void SetupSkills()
-        {
-            for (int i = 0; i < skills.Length; i++)
-            {
-                skills[i] = new Skill(Enum.GetName(typeof(SkillName), i));
-            }
-        }
 
-
-<<<<<<< HEAD
         /// <summary>
         /// Initializes the abilities for this character.
         /// </summary>
@@ -268,10 +207,7 @@ namespace BankGame.Character
 
 
         #endregion
-    }
-=======
-    #endregion
-    #region Equip/Unequip
+        #region Equip/Unequip
     public bool Equip(GameItem gameItem)
     {
         bool success = false;
@@ -283,5 +219,9 @@ namespace BankGame.Character
         return success;
     }
     #endregion
->>>>>>> origin/master
+    }
+
+
+
+    
 }

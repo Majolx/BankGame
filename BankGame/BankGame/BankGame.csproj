@@ -107,11 +107,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Character\Stats\Ability.cs" />
-    <Compile Include="Character\Stats\Attribute.cs" />
-    <Compile Include="Character\BaseCharacter.cs" />
-    <Compile Include="Character\Stats\BaseStat.cs" />
-    <Compile Include="Character\Stats\ModifiedStat.cs" />
     <Compile Include="Sprite\FrameAnimation.cs" />
     <Compile Include="Map\EntityLayer.cs" />
     <Compile Include="Map\GameMap.cs" />
@@ -119,8 +114,6 @@
     <Compile Include="Map\Tile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Game1.cs" />
-    <Compile Include="Character\Stats\Skill.cs" />
-    <Compile Include="Character\Stats\Vital.cs" />
     <Compile Include="ScreenManager\GameScreen.cs" />
     <Compile Include="ScreenManager\InputState.cs" />
     <Compile Include="ScreenManager\ScreenManager.cs" />

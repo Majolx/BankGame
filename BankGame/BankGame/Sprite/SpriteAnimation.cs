@@ -306,7 +306,7 @@ namespace BankGame
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch, int XOffset, int YOffset, Vector2 scale)
+        public void Draw(SpriteBatch spriteBatch, float XOffset, float YOffset, Vector2 scale)
         {
             if (bAnimating)
                 spriteBatch.Draw(t2dTexture, (v2Position + new Vector2(XOffset, YOffset) + v2Center),

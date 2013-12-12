@@ -277,8 +277,8 @@ namespace BankGame
             {
                 Vector2 offset = ScenarioScreen.drawOffset;
                 asSprite.Draw(spriteBatch,
-                    -(int)offset.X * (int)scale.X, 
-                    -(int)offset.Y * (int)scale.Y, 
+                    -offset.X * 32 * (int)scale.X, 
+                    -offset.Y * 32 * (int)scale.Y, 
                     scale);
             }
         }

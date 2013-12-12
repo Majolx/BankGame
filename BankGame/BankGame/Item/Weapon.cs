@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-namespace Game1.Itemclasses
+namespace BankGame
 {
  public class Weapon : BaseItem
  {
@@ -58,10 +58,10 @@ namespace Game1.Itemclasses
      get { return intValue; }
      protected set {intValue = value;}
  }
- public int Stablility
+ public int Stability
 {
-    get { return stablility; }
-    protected set { stablility = value; }
+    get { return stability; }
+    protected set { stability = value; }
 }
 
  #endregion

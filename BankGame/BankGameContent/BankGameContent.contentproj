@@ -42,7 +42,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="res\img\bgr\" />
     <Folder Include="res\snd\bgm\" />
     <Folder Include="res\snd\sfx\" />
   </ItemGroup>
@@ -125,6 +124,13 @@
   <ItemGroup>
     <Compile Include="res\img\spr\ThiefSpriteSheet.png">
       <Name>ThiefSpriteSheet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="res\img\bgr\mafia.png">
+      <Name>mafia</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
