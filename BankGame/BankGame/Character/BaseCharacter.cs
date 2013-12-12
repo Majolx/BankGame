@@ -20,6 +20,9 @@ public class BaseCharacter
 
     private string name;
 	private int level;
+    private int strValue;
+    private int dexValue;
+    private int intValue; 
 	private uint freeExp; // We use uint instead of int because we won't
                           // be dealing with negative experience values.
 	
@@ -30,6 +33,11 @@ public class BaseCharacter
 
     private int expToLevel;
     private float levelModifier;
+
+    protected GameItem head;
+    protected GameItem body;
+    protected GameItem hands;
+    protected GameItem feet;
 
     //private List<Buff> buffs;
     //private List<Consumable> inventory;
@@ -49,6 +57,29 @@ public class BaseCharacter
     /// </summary>
     public uint FreeExp { get; set; }
 
+    // Armor properties
+    public GameItem Helm
+    {
+        get { return helm; }
+    }
+    public GameItem Chest
+    {
+        get { return chest; }
+    }
+    public GameItem Gloves
+    {
+        get { return gloves; }
+    }
+    public GameItem Feet
+    {
+        get { return feet; }
+    }
+    // Weapon/Shield properties
+    public GameItem MainHand
+    {
+        get { return mainHand; }
+    }
+
     #endregion
 
     public BaseCharacter()
@@ -57,6 +88,9 @@ public class BaseCharacter
         name          = string.Empty;
         level         = 0;
         freeExp       = 0;
+        strValue = 0;
+        dexValue = 0;
+        intValue = 0;
         expToLevel    = 100;
         levelModifier = 1.1f;
 
@@ -70,6 +104,9 @@ public class BaseCharacter
         SetupVitals();
         SetupSkills();
         SetupAbilities();
+
+
+        
     }
 
     #region Experience and Leveling
@@ -161,5 +198,17 @@ public class BaseCharacter
     }
 
 
+    #endregion
+    #region Equip/Unequip
+    public bool Equip(GameItem gameItem)
+    {
+        bool success = false;
+        return success;
+    }
+    public bool Unequip(GameItem gameItem)
+    {
+        bool success = false;
+        return success;
+    }
     #endregion
 }
