@@ -112,6 +112,7 @@
     <Compile Include="Character\BaseCharacter.cs" />
     <Compile Include="Character\Stats\BaseStat.cs" />
     <Compile Include="Character\Stats\ModifiedStat.cs" />
+    <Compile Include="Sprite\FrameAnimation.cs" />
     <Compile Include="Map\EntityLayer.cs" />
     <Compile Include="Map\GameMap.cs" />
     <Compile Include="Map\Layer.cs" />
@@ -140,7 +141,8 @@
     <Compile Include="Screens\MainMenu\TutorialScreen.cs" />
     <Compile Include="Screens\PlayerIndexEventArgs.cs" />
     <Compile Include="Screens\InnerGame\ScenarioScreen.cs" />
-    <Compile Include="Sprite.cs" />
+    <Compile Include="Sprite\MobileSprite.cs" />
+    <Compile Include="Sprite\SpriteAnimation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

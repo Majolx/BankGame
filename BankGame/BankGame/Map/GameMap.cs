@@ -14,6 +14,8 @@ namespace BankGame.Map
     {
         #region Fields
 
+        Texture2D tileSheet;
+
         // Declare a list of tile layeres
         List<Layer> layers;
 
@@ -87,6 +89,8 @@ namespace BankGame.Map
                 MapWidth = Convert.ToInt32(objReader.ReadLine());
                 TileHeight = Convert.ToInt32(objReader.ReadLine());
                 TileWidth = Convert.ToInt32(objReader.ReadLine());
+
+                // Read the amount of layers
                 int layersCount = Convert.ToInt32(objReader.ReadLine());
 
                 // Reinitialize the map layers
@@ -120,7 +124,7 @@ namespace BankGame.Map
         #region Draw
         
 
-        public void DrawMap(SpriteBatch spriteBatch)
+        public void DrawMap(SpriteBatch spriteBatch, Vector2 scale)
         {
              try
             {
@@ -139,8 +143,16 @@ namespace BankGame.Map
                                 bounds = tileSet[layer.layer[y, x] - 1];
 
                                 // Draw the tile
-                                spriteBatch.Draw(ScenarioScreen.tileSheet, new Vector2(((y - ScenarioScreen.drawOffset.X) * TileWidth),
-                                                              ((x - ScenarioScreen.drawOffset.Y) * TileHeight)), bounds, Color.White);
+                                spriteBatch.Draw(tileSheet,                                                         // Texture
+                                    new Vector2(((y - ScenarioScreen.drawOffset.X) * TileWidth * (int)scale.X),    // Position
+                                              ((x - ScenarioScreen.drawOffset.Y) * (int)scale.Y * TileHeight)), 
+                                                                bounds,                                          // Source rectangle
+                                                                Color.White,                                    // Color
+                                                                0.0f,                                          // Rotation
+                                                                Vector2.Zero,                                 // Origin
+                                                                scale,                                       // Scale
+                                                                SpriteEffects.None,                         // Mirroring Depth
+                                                                0.0f);                                     // Depth
                             }
                         }
                         
@@ -157,6 +169,10 @@ namespace BankGame.Map
 
         public void LoadTileSet(Texture2D tileSheet)
         {
+
+            // Save the tile sheet
+            this.tileSheet = tileSheet;
+
             // Get the tile dimensions
             int numOfTilesX = (int)tileSheet.Width / TileWidth;
             int numOfTilesY = (int)tileSheet.Height / TileHeight;

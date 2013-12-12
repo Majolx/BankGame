@@ -20,7 +20,7 @@ namespace BankGame.Character
 
         #region Fields
 
-        private Sprite sprite;
+        private MobileSprite sprite;
         private string name;
         private int level;
         private uint freeExp; // We use uint instead of int because we won't
