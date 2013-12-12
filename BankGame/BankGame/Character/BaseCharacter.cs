@@ -19,6 +19,7 @@ public class BaseCharacter
     #region Fields
 
     private string name;
+    private string className;
 	private int level;
     private int strValue;
     private int dexValue;
@@ -49,7 +50,7 @@ public class BaseCharacter
 
 
     public string Name { get; set; }
-
+    public string ClassName { get; set; }
     public int Level { get; set; }
 
     /// <summary>
@@ -86,6 +87,7 @@ public class BaseCharacter
     {
         // Initialize data members to default values
         name          = string.Empty;
+        className  = string.Empty;
         level         = 0;
         freeExp       = 0;
         strValue = 0;
