@@ -110,7 +110,6 @@ public class BaseCharacter
 
         
     }
-
     #region Experience and Leveling
 
 
@@ -149,6 +148,7 @@ public class BaseCharacter
     {
         expToLevel = calculateExpToLevel();
         level++;
+        freeExp = 0;
     }
  
 
