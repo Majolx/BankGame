@@ -150,7 +150,7 @@ namespace BankGame
 
             foreach (GameScreen screen in screens)
                 screensToUpdate.Add(screen);
-
+            
             bool otherScreenHasFocus = !Game.IsActive;
             bool coveredByOtherScreen = false;
 
