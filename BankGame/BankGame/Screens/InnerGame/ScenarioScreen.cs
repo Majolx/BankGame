@@ -35,7 +35,7 @@ namespace BankGame.Screens
         float screenSpeed = 0.1f;
 
         // Declare file name
-        private string levelFileName = "level.txt";
+        private string levelFileName = "TestMap.txt";
 
         #endregion
 
@@ -58,7 +58,7 @@ namespace BankGame.Screens
                 content = new ContentManager(ScreenManager.Game.Services, "Content");
             
             // Load the map tile sheet
-            Texture2D tileSheet = content.Load<Texture2D>("res/img/map/tileSet");
+            Texture2D tileSheet = content.Load<Texture2D>("res/img/map/surooshSheet");
 
             // Load the character sprite
             t2dCharacter = content.Load<Texture2D>("res/img/spr/ThiefSpriteSheet");
@@ -179,14 +179,14 @@ namespace BankGame.Screens
             /// UP ///
             if (upKey)
             {
-                if (drawOffset.Y > 0)
+                if (drawOffset.Y > -5)
                     drawOffset.Y -= screenSpeed;
             }
 
             /// LEFT ///
             if (leftKey)
             {
-                if (drawOffset.X > 0)
+                if (drawOffset.X > -5)
                     drawOffset.X -= screenSpeed;
             }
 

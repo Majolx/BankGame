@@ -172,7 +172,7 @@ namespace BankGame.Map
 
             // Save the tile sheet
             this.tileSheet = tileSheet;
-
+            
             // Get the tile dimensions
             int numOfTilesX = (int)tileSheet.Width / TileWidth;
             int numOfTilesY = (int)tileSheet.Height / TileHeight;

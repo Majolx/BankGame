@@ -311,7 +311,7 @@ namespace BankGame.Screens
         {
             SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
 
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointWrap, DepthStencilState.None, RasterizerState.CullCounterClockwise);
 
             Viewport vp = ScreenManager.Game.GraphicsDevice.Viewport;
 

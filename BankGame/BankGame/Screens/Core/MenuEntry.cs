@@ -122,7 +122,7 @@ namespace BankGame.Screens
         public virtual void Draw(MenuScreen screen, bool isSelected, GameTime gameTime)
         {
             // Draw the selected entry in yellow, otherwise white.
-            Color color = isSelected ? Color.Yellow : Color.White;
+            Color color = isSelected ? Color.SeaGreen : Color.Navy;
 
             // Pulsate the size of the selected menu entry.
             double time = gameTime.TotalGameTime.TotalSeconds;
