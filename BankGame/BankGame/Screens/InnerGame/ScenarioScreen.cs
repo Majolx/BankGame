@@ -78,7 +78,7 @@ namespace BankGame.Screens
         {
             myCharacter = new MobileSprite(t2dCharacter);
             myCharacter.Sprite.AddAnimation("downstop", 0, 0, 32, 32, 1, 0.1f);
-            myCharacter.Sprite.AddAnimation("down", 0, 0, 32, 32, 3, 0.1f);
+            myCharacter.Sprite.AddAnimation("down", 32, 0, 32, 32, 2, 0.1f);
             myCharacter.Sprite.AddAnimation("rightstop", 32 * 3, 0, 32, 32, 1, 0.1f);
             myCharacter.Sprite.AddAnimation("right", 32 * 3, 0, 32, 32, 2, 0.1f);
             myCharacter.Sprite.AddAnimation("upstop", 32 * 5, 0, 32, 32, 1, 0.1f);

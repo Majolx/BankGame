@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using System.Collections.Generic;
+using System;
 #endregion
 
 namespace BankGame.Screens
@@ -27,8 +28,12 @@ namespace BankGame.Screens
         float[] y = new float[3];
         float[] m = new float[2];
         float[] triangY = new float[2];
+        float rise1;
+        float run1;
+
 
         #endregion
+
         #region Initialization
 
 
@@ -69,11 +74,11 @@ namespace BankGame.Screens
         {
             myCharacter = new MobileSprite(t2dCharacter);
             myCharacter.Sprite.AddAnimation("downstop", 0, 0, 32, 32, 1, 0.1f);
-            myCharacter.Sprite.AddAnimation("down", 0, 0, 32, 32, 3, 0.1f);
+            myCharacter.Sprite.AddAnimation("down", 32, 0, 32, 32, 2, 0.1f);
             myCharacter.Sprite.AddAnimation("rightstop", 32 * 3, 0, 32, 32, 1, 0.1f);
             myCharacter.Sprite.AddAnimation("right", 32 * 3, 0, 32, 32, 2, 0.1f);
             myCharacter.Sprite.AddAnimation("upstop", 32 * 5, 0, 32, 32, 1, 0.1f);
-            myCharacter.Sprite.AddAnimation("up", 32 * 5, 0, 32, 32, 3, 0.1f);
+            myCharacter.Sprite.AddAnimation("up", 32 * 6, 0, 32, 32, 2, 0.1f);
             myCharacter.Sprite.AddAnimation("leftstop", 32 * 8, 0, 32, 32, 1, 0.1f);
             myCharacter.Sprite.AddAnimation("left", 32 * 8, 0, 32, 32, 2, 0.1f);
             myCharacter.Sprite.CurrentAnimation = "downstop";
@@ -124,8 +129,8 @@ namespace BankGame.Screens
 
 
             // Slope formula
-            float rise1 = p3.Y - p1.Y;
-            float run1 = p2.X - p1.X;
+            rise1 = p3.Y - p1.Y;
+            run1 = p2.X - p1.X;
             m[0] = rise1 / run1;
 
             float rise2 = p4.Y - p6.Y;
@@ -213,6 +218,18 @@ namespace BankGame.Screens
                 {
                     myCharacter.Sprite.CurrentAnimation = "up";
                 }
+                if (isColliding())
+                {
+                    if (myCharacter.Sprite.Y < y[0])
+                    {
+                        myCharacter.Sprite.CurrentAnimation = "upstop";
+                    }
+                    else
+                    {
+                        myCharacter.Sprite.MoveBy(2, -1);
+                    }
+                }
+                else
                 myCharacter.Sprite.MoveBy(0, -4);
             }
 
@@ -240,7 +257,14 @@ namespace BankGame.Screens
                 {
                     myCharacter.Sprite.CurrentAnimation = "down";
                 }
-                myCharacter.Sprite.MoveBy(0, 4);
+                if (isColliding())
+                {
+                    myCharacter.Sprite.CurrentAnimation = "downstop";
+                }
+                else
+                {
+                    myCharacter.Sprite.MoveBy(0, 4);
+                }
             }
 
             /// D ///
@@ -284,13 +308,20 @@ namespace BankGame.Screens
             float charY = myCharacter.Position.Y;
 
             // Check first triangle collision
-            if (charY < triangY[0] && charX > x[0] && charX < x[1])
+            if (charY < triangY[0] && charX < x[1])
                 return true;
 
             // Check second triangle collision
-            if (charY < triangY[1] && charX > x[2] && charX < x[3])
+            if (charY < triangY[1] && charX > x[2])
                 return true;
 
+            // Check top collision
+            if (charY < y[0]) 
+                return true;
+
+            // Check bottom collision
+            if (charY > ScreenManager.Game.GraphicsDevice.Viewport.Height - myCharacter.Sprite.Height) 
+                return true;
 
             // No collisions detected
             return false;
@@ -300,7 +331,7 @@ namespace BankGame.Screens
         {
             myCharacter.Update(gameTime);
 
-            triangY[0] = m[0] * (myCharacter.Sprite.Position.X - p1.X) + p1.Y;
+            triangY[0] = -m[0] * (myCharacter.Sprite.Position.X - p1.X) + y[1];
             triangY[1] = m[1] * (myCharacter.Sprite.Position.X - p4.X) + p4.Y;
             
             base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
@@ -310,13 +341,36 @@ namespace BankGame.Screens
         public override void Draw(GameTime gameTime)
         {
             SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
+            Viewport vp = ScreenManager.Game.GraphicsDevice.Viewport;
+
+
+            spriteBatch.Begin();
+
+            spriteBatch.Draw(t2dBackground, new Rectangle(0, 0, vp.Width, vp.Height), Color.White);
+
+            spriteBatch.End();
+
 
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointWrap, DepthStencilState.None, RasterizerState.CullCounterClockwise);
 
-            Viewport vp = ScreenManager.Game.GraphicsDevice.Viewport;
+            Vector2 v2LinePosition;
 
-            spriteBatch.Draw(t2dBackground, new Rectangle(0, 0, vp.Width, vp.Height), Color.White);
+            Texture2D pixel = new Texture2D(ScreenManager.Game.GraphicsDevice, 1, 1);
+            Color[] colors = new Color[1];
+            colors[0] = Color.Red;
+            pixel.SetData(colors);
+
+            for (int i = (int)x[0]; i < (int)x[1]; i++)
+            {
+                int myY = Convert.ToInt32(-m[0] * (i - p1.X) + y[1]);
+                v2LinePosition = new Vector2(i, myY);
+                spriteBatch.Draw(pixel, v2LinePosition, Color.White);
+            }
+            
             myCharacter.Draw(spriteBatch, scale);
+
+            spriteBatch.DrawString(ScreenManager.Font, "f(x) = " + (ScreenManager.Game.GraphicsDevice.Viewport.Height - myCharacter.Sprite.Height), new Vector2(10, 10), Color.White);
+            spriteBatch.DrawString(ScreenManager.Font, "X: " + myCharacter.Sprite.X + " Y: " + myCharacter.Sprite.Y, new Vector2(10, 30), Color.White);
 
             spriteBatch.End();
 
